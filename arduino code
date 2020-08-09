@@ -1,0 +1,21 @@
+#include<Servo.h>
+Servo servo ;
+int sen1 =8;
+bool sta1 = 0;
+unsigned long t1 ;
+unsigned long t2 ;
+void setup(){
+ pinMode(sen1,INPUT);
+ servo.attach(7);
+}
+void loop(){
+  t1 = millis();
+ sta1 = digitalRead(sen1);
+ if(sta1 == 1){
+   servo.write(165);
+  }
+  if(t1 > 2000+t2){
+   servo.write(5);
+    t2 = t1;
+  }
+}
